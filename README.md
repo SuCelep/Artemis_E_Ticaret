@@ -33,3 +33,11 @@ Package Manager Console üzerinden veya terminalden aşağıdaki komutu çalış
 ### 1. Projeyi Klonlayın
 ```bash
 git clone [https://github.com/KULLANICI_ADIN/REPO_ISMI.git](https://github.com/KULLANICI_ADIN/REPO_ISMI.git)
+##2. Veritabanı Ayarları
+appsettings.json dosyasındaki Connection String bilgisini kendi yerel SQL Server ayarlarınıza göre güncelleyin.
+
+JSON
+
+"ConnectionStrings": {
+  "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=EticaretDb;Trusted_Connection=True;MultipleActiveResultSets=true"
+}
