@@ -12,16 +12,16 @@ Proje aşağıdaki katmanlardan oluşmaktadır:
 
 * **Core Layer (Varlık Katmanı):** Entity'ler, DTO'lar ve ortak arayüzler.
 * **Data Access Layer (Veri Erişim Katmanı):** Entity Framework Core konfigürasyonları, Repository Pattern uygulamaları ve Migrations işlemleri.
-* **Business Layer (İş Katmanı):** İş kuralları, validasyonlar (FluentValidation) ve servisler.
+* **Business Layer (İş Katmanı):** İş kuralları, validasyonlar ve servisler.
 * **WebUI / API Layer:** Kullanıcı arayüzü (MVC) veya dış dünyaya açılan API endpointleri.
 
 ## 🚀 Kullanılan Teknolojiler ve Kütüphaneler
 
 * **Dil:** C#
-* **Framework:** ASP.NET Core 7.0 / 8.0 (Kullandığın sürümü yaz)
+* **Framework:** ASP.NET Core 7.0 / 8.0 
 * **Veritabanı:** MS SQL Server
-* **ORM:** Entity Framework Core (Code First yaklaşımı)
-* **Frontend (Eğer MVC ise):** Bootstrap 5, jQuery, HTML5/CSS3.
+* **ORM:** Entity Framework Core 
+* **Frontend :** Bootstrap 5, jQuery, HTML5/CSS3.
 
 ## ⚙️ Kurulum ve Çalıştırma
 
