@@ -1,4 +1,4 @@
-# 🛒 [Proje İsmi] - Çok Katmanlı E-Ticaret Platformu
+# 🛒 Çok Katmanlı E-Ticaret Platformu
 
 ![.NET Core](https://img.shields.io/badge/.NET%20Core-512BD4?style=flat&logo=dotnet&logoColor=white)
 ![C#](https://img.shields.io/badge/C%23-239120?style=flat&logo=c-sharp&logoColor=white)
