@@ -41,3 +41,12 @@ JSON
 "ConnectionStrings": {
   "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=EticaretDb;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
+
+3. Veritabanını Oluşturun (Migration)
+Package Manager Console üzerinden veya terminalden aşağıdaki komutu çalıştırarak veritabanını ve tabloları oluşturun:
+
+Bash
+
+update-database
+# veya .NET CLI kullanıyorsanız:
+dotnet ef database update
