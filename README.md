@@ -50,3 +50,7 @@ Bash
 update-database
 # veya .NET CLI kullanıyorsanız:
 dotnet ef database update
+
+
+
+https://github.com/SuCelep tarafından geliştirilmiştir.
