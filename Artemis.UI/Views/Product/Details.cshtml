@@ -1,0 +1,169 @@
+﻿@model Product
+<section class="page-header">
+    <div class="page-header__bg" style="background-color:darkred"></div>
+    <!-- /.page-header__bg -->
+    <div class="container">
+        <h2 class="page-header__title">Ürün Detayı</h2>
+        <ul class="boskery-breadcrumb list-unstyled">
+            <li><a href="/">Artemis</a></li>
+            
+        </ul><!-- /.thm-breadcrumb list-unstyled -->
+    </div><!-- /.container -->
+</section><!-- /.page-header -->
+
+<section class="product-details section-space">
+    <div class="container">
+        <!-- /.product-details -->
+        <div class="row gutter-y-50">
+            <div class="col-lg-6 col-xl-6 wow fadeInLeft" data-wow-delay="200ms">
+                <div class="product-details__img">
+                    <div class="swiper product-details__gallery-top">
+                        <div class="swiper-wrapper">
+                                @if (Model.ProductPicture.Count() > 0)
+                                {
+                                    foreach (ProductPicture pp in Model.ProductPicture)
+                                    {
+                                        <div class="swiper-slide">
+                                            <div class="product-details__gallery-top__inner">
+                                                <div class="product-details__gallery-top__image">
+                                                    <img src="@pp.Picture" alt="@pp.Name">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+                                }
+                           
+                        </div>
+                    </div>
+                    <div class="swiper product-details__gallery-thumb">
+                        <div class="swiper-wrapper">
+                            @if (Model.ProductPicture.Count() >1)
+                            {
+                                foreach (ProductPicture pp in Model.ProductPicture)
+                                {
+                                    <div class="product-details__gallery-thumb-slide swiper-slide">
+                                        <img src="@pp.Picture" alt="@pp.Name">
+                                    </div>
+                                }
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.column -->
+            <div class="col-lg-6 col-xl-6 wow fadeInRight" data-wow-delay="300ms">
+                <div class="product-details__content">
+                    <div class="product-details__top">
+                        <div class="product-details__top__left">
+                            <h3 class="product-details__name">@Model.Name</h3><!-- /.product-title -->
+                            <h4 class="product-details__price">@Model.Price ₺</h4><!-- /.product-price -->
+                        </div><!-- /.product-details__price -->
+                        @* <a href="https://www.youtube.com/watch?v=h9MbznbxlLc" class="product-details__video video-button video-popup">
+                            <span class="icon-play"></span>
+                            <i class="video-button__ripple"></i>
+                        </a> *@<!-- /.video-button -->
+                    </div>
+                    <div class="product-details__review">
+                        <div class="boskery-ratings">
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                        </div><!-- /.product-ratings -->
+                        @* <a href="shop-details.html"></a> *@
+                    </div><!-- /.review-ratings -->
+                    <div class="product-details__excerpt">
+                        <p class="product-details__excerpt__text">
+                           @Model.Detail
+                        </p>
+                    </div><!-- /.excerp-text -->
+                    <div class="product-details__color">
+                        <h3 class="product-details__content__title">Marka</h3>
+                        <div class="product-details__color__box">
+                          <span style="color:darkred"> @Model.Brand.Name </span>
+                        </div><!-- /.product-details__color__box -->
+                    </div><!-- /.product-details__color -->
+                    <div class="product-details__size">
+                        <h3 class="product-details__content__title">Kategori</h3>
+                        <div class="product-details__excerpt">
+                            <p class="product-details__excerpt__text" >
+                                <span style="color:darkred"> @Model.Category.Name </span>
+                            </p>
+                            </div>
+                    </div><!-- /.product-details__size -->
+                    <div class="product-details__info">
+                        <div class="product-details__quantity">
+                            <h3 class="product-details__content__title">Adet</h3>
+                            <div class="quantity-box">
+                                <button type="button" class="sub"><i class="fa fa-minus"></i></button>
+                                <input type="text" id="1" value="1" class="inputQuantity">
+                                <button type="button" class="add"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div><!-- /.quantity -->
+                        <div class="product-details__socials">
+                            <h3 class="product-details__socials__title">share:</h3>
+                            <div class="boskery-social">
+                                <a href="https://facebook.com">
+                                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                    <span class="sr-only">Facebook</span>
+                                </a>
+                                <a href="https://twitter.com">
+                                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                                    <span class="sr-only">Twitter</span>
+                                </a>
+                                <a href="https://linkedin.com">
+                                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                                    <span class="sr-only">Linkedin</span>
+                                </a>
+                                <a href="https://youtube.com" aria-hidden="true">
+                                    <i class="fab fa-youtube"></i>
+                                    <span class="sr-only">Youtube</span>
+                                </a>
+                            </div><!-- /.details-social -->
+                        </div><!-- /.product-details__socials -->
+                    </div><!-- /.product-details__info -->
+                    <div class="product-details__buttons">
+                        <a onclick="addCart(@Model.ID, @Model.Stock)" class="product-details__btn boskery-btn">
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__text"> Sepete Ekle </span>
+                            <i class="icon-cart"></i>
+                        </a>
+                    </div><!-- /.qty-btn -->
+                </div>
+            </div>
+        </div>
+        <!-- /.product-details -->
+    </div>
+    <div class="product-details__description-wrapper">
+        <div class="container">
+            <!-- /.product-description -->
+            <div class="product-details__description">
+                <h3 class="product-details__description__title">Ürün Detayları</h3>
+                <div class="product-details__text__box wow fadeInUp" data-wow-delay="300ms">
+                    <p class="product-details__description__text">
+                       @Model.CargoDetail
+                    </p>
+                    <p class="product-details__description__text">
+
+                       @Model.Detail
+                    </p>
+                    <p class="product-details__description__text">
+                       @Model.Description
+                    </p>
+                </div><!-- /.product-details__text__box -->
+            </div>
+            <!-- /.product-description -->
+        </div><!-- /.container -->
+    </div><!-- /.product-details__description__wrapper -->
+</section>
+
+<div class="modal-dialog modal-lg" id="modalSepet">
+
+</div> @*Modal*@

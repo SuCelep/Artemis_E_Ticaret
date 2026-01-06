@@ -1,0 +1,81 @@
+﻿@model Slide
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                     @*    <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Velonic</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                                <li class="breadcrumb-item active">Form Elements</li>
+                            </ol>
+                        </div> *@
+                        <h4 class="page-title">Slayt Yönetimi</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="header-title">Yeni Slayt Ekle</h4>
+                           
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form enctype="multipart/form-data"  asp-controller="slide" asp-action="Insert" method="post">
+                                        <div class="mb-3">
+                                            <label  asp-for="@Model.Slogan" class="form-label"></label>
+                                            <input asp-for="@Model.Slogan"  class="form-control">
+                                            <span asp-validation-for="@Model.Slogan"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Title" class="form-label"></label>
+                                            <input asp-for="@Model.Title" class="form-control">
+                                            <span asp-validation-for="@Model.Title"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Picture" class="form-label"></label>
+                                            <input asp-for="@Model.Picture" class="form-control"
+                                            type="file">
+                                            <span asp-validation-for="@Model.Picture"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Description" class="form-label"></label>
+                                            <input asp-for="@Model.Description" class="form-control" >
+                                            <span asp-validation-for="@Model.Description"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Link" class="form-label"></label>
+                                            <input asp-for="@Model.Link" class="form-control">
+                                            <span asp-validation-for="@Model.Link"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.DisplayIndex" class="form-label"></label>
+                                            <input asp-for="@Model.DisplayIndex" class="form-control">
+                                            <span asp-validation-for="@Model.DisplayIndex"></span>
+                                        </div>
+
+
+                                      <div class="mb--60">
+                                         <button class="btn btn-primary" type="submit">Ekle </button>
+                                         <button class="btn btn-danger" type="reset">Temizle </button>
+
+                                      </div>
+                                      @Html.AntiForgeryToken()
+                                    </form>
+                                </div> <!-- end col -->

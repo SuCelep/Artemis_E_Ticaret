@@ -1,0 +1,52 @@
+﻿@model UserVM
+<section class="cart-page section-space">
+    <div class="container">
+        <div class="row gutter-y-50">
+            <div class="col-md-12 >
+                <div class="table-responsive">
+                    <a class="btn btn-success" asp-controller="user" asp-action="new">Yeni Ürün Ekle</a>
+                    <table class="table cart-page__table">
+                        <thead>
+                            <tr>
+                                <th>Ürün Adı</th>
+                                <th>Fiyatı</th>
+                                <th>Kategorisi</th>
+                                <th>Markası</th>
+                                <th>Durumu</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @foreach (Product p in Model.Products)
+                        {
+                                <tr>
+                                    <td class="cart-page__table__meta">
+                                      @p.Name
+                                    </td>
+                                    <td class="cart-page__table__price">@p.Price ₺</td>
+                                    <td>
+                                       @p.Category.Name
+                                    </td >
+                                    <td>@p.Brand.Name</td>
+                                    <td><span class="label label-primary">
+                                        @(p.Status?"Aktif":"Pasif")
+                                    </span>
+                                    </td>
+                                    <td>
+                                        <a asp-controller="user" asp-action="edit" asp-route-productid="@p.ID" class=" btn btn-primary">Düzenle</a>
+                                    </td>
+                                    <td>
+                                        <a asp-controller="user" asp-action="delete" asp-route-productid="@p.ID" class=" btn btn-danger">Sil</a>
+                                    </td>
+                                </tr>
+                        }
+
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div><!-- /.col-xl-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.cart-page -->

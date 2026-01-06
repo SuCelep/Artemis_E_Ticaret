@@ -1,0 +1,36 @@
+﻿
+@model Product
+<div class="col-xl-3 col-lg-4 col-sm-6">
+    <div class="product__item wow fadeInUp" data-wow-duration='1500ms' data-wow-delay='00ms'>
+        <div class="product__item__image">
+            @if (Model.ProductPicture.Any())
+            {
+                <img src="@Model.ProductPicture.FirstOrDefault().Picture" alt="@Model.Name">
+            }else
+            {
+                <img src="/img/gorsel-hazirlaniyor.jpg"alt="@Model.Name">
+            }
+        </div><!-- /.product-image -->
+        <div class="product__item__content">
+            <div class="boskery-ratings">
+                <span class="icon-star"></span>
+                <span class="icon-star"></span>
+                <span class="icon-star"></span>
+                <span class="icon-star"></span>
+                <span class="icon-star"></span>
+            </div><!-- /.product-ratings -->
+            <h4 class="product__item__title"><a asp-controller="product" asp-action="details" asp-route-name="@Model.Name" asp-route-id="@Model.ID" >@Model.Name</a></h4><!-- /.product-title -->
+            <div class="product__item__price">@Model.Price ₺</div><!-- /.product-price -->
+            <a asp-controller="product" asp-action="details" asp-route-name="@Model.Name" asp-route-id="@Model.ID" class="boskery-btn product__item__link">
+                <span class="boskery-btn__hover"></span>
+                <span class="boskery-btn__hover"></span>
+                <span class="boskery-btn__hover"></span>
+                <span class="boskery-btn__hover"></span>
+                <span class="boskery-btn__hover"></span>
+                <span class="boskery-btn__hover"></span>
+                <span class="boskery-btn__text">Sepete Ekle</span>
+                <i class="icon-cart"></i>
+            </a>
+        </div><!-- /.product-content -->
+    </div><!-- /.product-item -->
+</div>

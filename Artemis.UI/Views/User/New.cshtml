@@ -1,0 +1,77 @@
+﻿@model UserVM
+
+<section class="contact-page section-space-top">
+    <div class="container">
+        <div class="col-md-12">
+        <div class="contact-page__wrapper">
+            <div class="contact-page__content">
+                <div class="contact-page__sec-title">
+                    <h2 class="contact-page__title">Ürün Ekle</h2><!-- /.contact-page__title -->
+                </div><!-- /.contact-page__sec-title -->
+                <form  class="contact-page__form contact-form-validated form-one" method="post " asp-controller="user" asp-action="insert" >
+                    <div class="form-one__group">
+                        <div class="form-one__control wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <label asp-for="@Model.Product.Name"></label>
+                            <input asp-for="@Model.Product.Name" type="text" placeholder="Ürün Adı"  >
+                        </div><!-- /.form-one__control -->
+
+                            <div class="form-one__control wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <label asp-for="@Model.Product.Price"></label>
+                                <input asp-for="@Model.Product.Price" type="text" placeholder="Ürün Fiyatı">
+                            </div>
+
+
+
+
+                            <div class="form-one__control wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <label asp-for="@Model.Product.CategoryID"></label>
+                                <select class="form-control" asp-for="@Model.Product.CategoryID" asp-items="@Model.Categories.Select(x=>new SelectListItem{Text=x.Name,Value=x.ID.ToString()})">
+                                    <option value="">Kategori Seçiniz</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-one__control wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <label asp-for="@Model.Product.BrandID"></label>
+                                <select class="form-control" asp-for="@Model.Product.BrandID" asp-items="@Model.Brands.Select(x=>new SelectListItem{Text=x.Name,Value=x.ID.ToString()})">
+                                    <option value="">Marka Seçiniz</option>
+                                </select>
+                            </div><!-- /.form-one__control -->
+
+                           
+                         
+
+                            <div class="form-one__control wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <label asp-for="@Model.Product.Detail"></label>
+                                <textarea asp-for="@Model.Product.Detail" type="text" placeholder="Ürün Detayı">
+                                    </textarea>
+                            </div>
+
+                            <div class="form-one__control wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <label asp-for="@Model.Product.CargoDetail"></label>
+                                <textarea asp-for="@Model.Product.CargoDetail" type="text" placeholder="Ürün Kargo Detayı">
+                                    </textarea>
+                            </div>
+
+
+                            <div class="form-one__control wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                                <label asp-for="@Model.Product.Stock"></label>
+                                <input asp-for="@Model.Product.Stock" type="text" placeholder="Ürün Miktarı">
+                            </div>
+
+
+
+                            <div class="form-one__control form-one__control--full wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="150ms">
+                                <button type="submit" class="btn btn-outline-success">
+                                    Ekle
+
+                                </button>
+                    </div><!-- /.form-one__group -->
+                    @Html.AntiForgeryToken()
+                </form><!-- /.contact-page__form -->
+                <div class="result"></div><!-- /.result -->
+            </div><!-- /.contact-page__content -->
+        </div><!-- /.contact-page__wrapper -->
+        </div>
+    </div><!-- /.container -->
+</section>

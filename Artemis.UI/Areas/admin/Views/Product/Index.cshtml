@@ -1,0 +1,83 @@
+﻿@model IOrderedQueryable<Product>
+
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                            <a asp-controller="Product" asp-action="new" class="btn btn-success float-right "> Ürün Ekle </a>
+                            </div>
+                            <h4 class="page-title">Ürün Yönetimi</h4>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+               
+                            <div class="card-body">
+                                <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>Ürün Adı</th>
+                                            <th>Ürün Fiyatı</th>
+                                            <th>Stok Miktarı</th>
+                                            <th>Durum</th>
+                                            <th>Ürün Resimleri</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                       @foreach (Product s in Model)
+                                    {
+                                        <tr>
+                                <td><a asp-controller="Product" asp-action="edit" asp-route-id="@s.ID">@s.Name </a></td>
+                                            <td>@s.Price</td>
+                                            <td>@s.Stock</td>
+                                            <td>
+
+                                                <label class="label-info  ">
+
+                                    @(s.Status ? "aktif" : "pasif")
+                                                </label>
+
+
+                                            </td>
+                                            <td><a asp-controller="productpicture" asp-action="index" asp-route-productid="@s.ID">Ürün Resimleri</a></td>
+
+                                            <td>
+                                                <a asp-controller="Product" asp-action="delete" asp-route-id="@s.ID" class="btn btn-danger" style="color:#fff" >Sil</a>
+                                            </td>
+                                        </tr>  
+                                    }
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div> <!-- end card body-->
+                        </div> <!-- end card -->
+                    </div><!-- end col-->
+                </div> <!-- end row-->
+
+
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+</div>
+<!-- END wrapper -->
+<!-- Theme Settings -->

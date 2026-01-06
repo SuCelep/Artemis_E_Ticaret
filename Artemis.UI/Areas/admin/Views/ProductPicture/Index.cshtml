@@ -1,0 +1,74 @@
+﻿@model IOrderedQueryable<ProductPicture>
+
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                            <a asp-controller="ProductPicture" asp-action="new" asp-route-productid="@ViewBag.ProductId"   class="btn btn-success float-right "> Ürün Resmi Ekle </a>
+                            </div>
+                            <h4 class="page-title">Ürün Resim Yönetimi</h4>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+               
+                            <div class="card-body">
+                                <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>Ürün Resim Adı</th>
+                                            @* <th>Ürün Resmi</th> *@
+                                            <th>Sıra</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                       @foreach (ProductPicture s in Model)
+                                    {
+                                        <tr>
+                                <td><a asp-controller="ProductPicture" asp-action="edit" asp-route-id="@s.ID">@s.Name </a></td>
+                                            
+                                          @* <td><img src="@s.Picture" 
+                                                /></td> *@
+
+                                            <td>@s.DisplayIndex</td>
+
+                                            <td>
+                                                <a asp-controller="ProductPicture" asp-action="delete" asp-route-id="@s.ID" class="btn btn-danger" style="color:#fff" >Sil</a>
+                                            </td>
+                                        </tr>  
+                                    }
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div> <!-- end card body-->
+                        </div> <!-- end card -->
+                    </div><!-- end col-->
+                </div> <!-- end row-->
+
+
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+</div>
+<!-- END wrapper -->
+<!-- Theme Settings -->

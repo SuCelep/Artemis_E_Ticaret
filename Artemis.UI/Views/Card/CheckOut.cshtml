@@ -1,0 +1,197 @@
+﻿@model CheckOutVM
+
+@{
+    decimal totalCart = Model.Cards.Sum(x => x.Quantity * x.ProductPrice);
+    decimal shippingFee = 50;
+    if (totalCart >= ViewBag.ShippingFee) shippingFee = 0;
+
+}
+<section class="page-header">
+    <div class="page-header__bg" style="background-color:darkred"></div>
+    <!-- /.page-header__bg -->
+    <div class="container">
+        <h2 class="page-header__title">Sipariş</h2>
+        <ul class="boskery-breadcrumb list-unstyled">
+            <li><a href="/">Artemis</a></li>
+            
+        </ul><!-- /.thm-breadcrumb list-unstyled -->
+    </div><!-- /.container -->
+</section><!-- /.page-header -->
+
+<section class="checkout-page section-space">
+    <div class="container">
+        <div class="row gutter-y-30">
+            <div class="col-xl-8 col-lg-7">
+                <div class="checkout-page__billing-address">
+                    <h2 class="checkout-page__billing-address__title checkout-page__title">Teslimat Detayları</h2>
+                    <form asp-controller="card" asp-action="checkout" method="post" class="checkout-page__form row gutter-y-16">
+                        <div class="col-xl-12">
+                            <div class="checkout-page__input-box">
+                                <label asp-for="@Model.Order.NameSurname"></label>
+                                <input  asp-for="@Model.Order.NameSurname"  type="text" >
+                            </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="checkout-page__input-box">
+                                <label asp-for="@Model.Order.Address"></label>
+                                <input asp-for="@Model.Order.Address" type="text" >
+                            </div>
+                        </div>
+
+                        
+
+                            <div class="col-xl-12">
+                                <div class="checkout-page__input-box">
+                                    <label asp-for="@Model.Order.Country"></label>
+                                    <input asp-for="@Model.Order.Country" type="text">
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-xl-12">
+                                <div class="checkout-page__input-box">
+                                    <label  asp-for="@Model.Order.City"></label>
+                                    <input asp-for="@Model.Order.City" type="text" >
+                                </div>
+                            </div>
+
+                        <div class="col-xl-12">
+                            <div class="checkout-page__input-box">
+                                <label asp-for="@Model.Order.ZipCode"></label>
+                                <input asp-for="@Model.Order.ZipCode"  type="text">
+                            </div>
+
+                            <br />
+                            <h2 class="checkout-page__billing-address__title checkout-page__title">Kart Bilgileri</h2>
+
+
+
+                        <div class="col-xl-12">
+                            <div class="checkout-page__input-box">
+                                <label asp-for="@Model.Order.CardNumber"></label>
+                                    <input asp-for="@Model.Order.CardNumber" type="tel"  placeholder="**** **** **** ****">
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="checkout-page__input-box">
+                                <label >Ay </label>
+                                    <select class="selectpicker" aria-label="Default select example" asp-for="@Model.Order.CardMonth">
+                                   @for (int i = 1; i <= 12; i++)
+                                        {
+                                            <option>@i</option>
+                                        }
+                                </select>
+                            </div>
+                        </div>
+
+                            <div class="col-xl-6">
+                                <div class="checkout-page__input-box">
+                                    <label >Yıl</label>
+                                    <select class="selectpicker" aria-label="Default select example" asp-for="@Model.Order.CarddYear">
+                                        @for (int i = DateTime.Now.Year; i <= DateTime.Now.AddYears(10).Year; i++)
+                                        {
+                                            <option>@i</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                       
+                      
+                       
+                        
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="checkout-page__input-box">
+                                <label for="phone">CVV Numarası</label>
+                                <input asp-for="@Model.Order.CardCv2"  maxlength="4" type="tel" >
+                            </div>
+                        </div>
+
+                        <td   colspan="2">
+                            <button class="btn btn-success btn-lg" type="submit">Satın Al</button>
+
+                        </td>
+
+                        @Html.AntiForgeryToken()
+                    </form>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="checkout-page__your-order">
+                    <h2 class="checkout-page__your-order__title checkout-page__title">Sepetteki Ürünler</h2>
+                    <table class="checkout-page__order-table">
+                        <thead class="checkout-page__order-table__heade">
+                            <tr>
+                                 
+                                
+                                <th>Ürün</th>
+                                <th class="right">Fiyat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Card c in Model.Cards)
+                            {
+                                <tr>
+                                    <td>
+                                    <div class="cart-page__table__meta">
+                                        <div class="cart-page__table__meta__img">
+                                            <img src="@c.ProductPicture" alt="@c.ProductName">
+                                        </div>
+                                        <h3 class="cart-page__table__meta__title">
+                                            <a href="/sepet/sepetitamamla">
+                                                @c.ProductName
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    </td>
+                                   
+                                    <td class="pro__price">@c.ProductPrice</td>
+                                </tr>
+                                <tr>
+                                    <td class="pro__sub-title">Toplam</td>
+                                    <td class="pro__sub-price">@totalCart ₺</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="checkout-page__order-address-data">
+                                            <h4 class="checkout-page__order-address">Kargo Ücreti</h4>
+                                            <address class="checkout-page__order-address-text">
+                                                @if (shippingFee == 0)
+                                                {
+                                                    <span style="color:red">Kargo Bedava</span>
+                                                }else{
+                                                    <span style="color:red">Toplam</span>
+                                                    <span>@(totalCart + shippingFee) ₺</span>
+                                                }
+
+                                            </address>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        
+                           
+                            <tr>
+                                <td colspan="2">
+                                    <br />
+                                    <div class="checkout-page__radio-box checkout-page__radio-box--right">
+                                        <div class="checkout-page__input-item custom-radio">
+                                            <input type="radio" id="direct" name="order-info" class="custom-radio__input" checked>
+                                            <label for="direct" class="custom-radio__title">Kredi Kartı</label>
+                                        </div>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /.checkout-page -->

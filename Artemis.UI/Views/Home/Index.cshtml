@@ -1,0 +1,135 @@
+﻿@model IndexVM
+<section class="hero-slider-one hero-main-slider" id="home">
+    <div class="hero-slider-one__carousel boskery-owl__carousel--with-counter owl-carousel" data-owl-options='{
+         "loop" : true,
+         "animateIn" : "fadeIn" ,
+         "animateOut" : "slideOutDown" ,
+         "items" : 1,
+         "autoplay" : true,
+         "autoplayTimeout" : 7000,
+         "smartSpeed" : 1000,
+         "nav" : false,
+         "navText" : ["<span class=\"icon-left-arrow\"></span>","<span class=\"icon-right-arrow\"></span>"],
+        "dots": true,
+        "margin": 0
+        }'>
+        @foreach (Slide s in Model.Slides)
+        {
+         <div class="item">
+                            <div class="hero-slider-one__item">
+                                <div class="hero-slider-one__bg" style="background-image: url(@s.Picture);"></div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-xxl-12 col-xl-10 col-lg-10">
+                                            <div class="hero-slider-one__content">
+                                                <h5 class="hero-slider-one__sub-title" style="color:darkred"> @s.Slogan</h5><!-- /.slider-sub-title -->
+                                                <h2 class="hero-slider-one__title" style="color:darkred">
+                                                   @s.Title <br /> @s.Description
+                                                    <span class="hero-slider-one__title__overlay-group">
+                                                        <span class="hero-slider-one__title__overlay"></span>
+                                                        <span class="hero-slider-one__title__overlay"></span>
+                                                        <span class="hero-slider-one__title__overlay"></span>
+                                                        <span class="hero-slider-one__title__overlay"></span>
+                                                        <span class="hero-slider-one__title__overlay"></span>
+                                                        <span class="hero-slider-one__title__overlay"></span>
+                                                    </span>
+                                                </h2><!-- /.slider-title -->
+                                                <div class="hero-slider-one__btn">
+                                                    <a href="/" class="boskery-btn">
+                                                        <span class="boskery-btn__hover"></span>
+                                                        <span class="boskery-btn__hover"></span>
+                                                        <span class="boskery-btn__hover"></span>
+                                                        <span class="boskery-btn__hover"></span>
+                                                        <span class="boskery-btn__hover"></span>
+                                                        <span class="boskery-btn__hover"></span>
+                                                        <span class="boskery-btn__text">GÖZAT</span>
+                                                         <i class="icon-search"></i>
+                                                    </a><!-- slider-btn -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                <!-- /.slider-item -->
+        }
+
+                </div><!-- /.slider-item -->
+    </div>
+</section><!-- /.hero-slider-one -->
+
+
+
+
+
+<section class="counter-one section-space">
+    <div class="counter-one__bg boskery-jarallax" data-jarallax data-speed="0.3" style="background-color:black;"></div><!-- /.counter-one__bg -->
+    <div class="container">
+        <div class="counter-one__wrapper">
+            <div class="counter-one__item wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="00ms">
+                <div class="counter-one__item__inner">
+                    <div class="counter-one__box count-box">
+                        <h3 class="counter-one__count-text count-text" data-stop="12" data-speed="1500">0</h3>
+                    </div><!-- /.counter-one__box -->
+                    <h4 class="counter-one__title">Yıllık Deneyim</h4><!-- /.counter-one__title -->
+                </div><!-- /.counter-one__item__inner -->
+            </div><!-- /.counter-one__item -->
+            <div class="counter-one__item wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="200ms">
+                <div class="counter-one__item__inner">
+                    <div class="counter-one__box count-box">
+                        <h3 class="counter-one__count-text count-text" data-stop="4" data-speed="1500">0</h3>
+                        
+                    </div><!-- /.counter-one__box -->
+                    <h4 class="counter-one__title">Farklı Ülke</h4><!-- /.counter-one__title -->
+                </div><!-- /.counter-one__item__inner -->
+            </div><!-- /.counter-one__item -->
+            <div class="counter-one__item wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="400ms">
+                <div class="counter-one__item__inner">
+                    <div class="counter-one__box count-box">
+                        <h3 class="counter-one__count-text count-text" data-stop="100" data-speed="1500">0</h3>
+                        <h3 class="counter-one__count-text">k</h3>
+                    </div><!-- /.counter-one__box -->
+                    <h4 class="counter-one__title">Mutlu Müşteri</h4><!-- /.counter-one__title -->
+                </div><!-- /.counter-one__item__inner -->
+            </div><!-- /.counter-one__item -->
+            <div class="counter-one__item wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="600ms">
+                <div class="counter-one__item__inner">
+                    <div class="counter-one__box count-box">
+                        <h3 class="counter-one__count-text count-text" data-stop="1" data-speed="1500">0</h3>
+                    </div><!-- /.counter-one__box -->
+                    <h4 class="counter-one__title">Günde Teslimat</h4><!-- /.counter-one__title -->
+                </div><!-- /.counter-one__item__inner -->
+            </div><!-- /.counter-one__item -->
+        </div><!-- /.counter-one__wrapper -->
+    </div><!-- /.container -->
+</section><!-- /.counter-one section-space -->
+
+
+
+
+
+<section class="product-one section-space-two" id="shop">
+    <div class="container">
+        <div class="sec-title sec-title--center">
+
+            <h6 class="sec-title__tagline">Trend</h6><!-- /.sec-title__tagline -->
+
+            <h2 class="sec-title__title">Popüler Ürünler</h2><!-- /.sec-title__title -->
+        </div><!-- /.sec-title -->
+        <div class="row gutter-y-30">
+
+            @foreach (Product p in Model.Products)
+            {
+                <partial name="_Product" model="@p" />
+            }
+            
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+
+</section><!-- /.product-one section-space-two -->
+
+
+
+

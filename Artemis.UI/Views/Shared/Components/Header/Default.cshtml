@@ -1,0 +1,181 @@
+﻿@model IEnumerable<Category>
+
+<header class="main-header main-header--one sticky-header sticky-header--normal">
+    <div class="main-header__container-fluid container-fluid">
+        <div class="main-header__inner">
+            @*      <div class="main-header__logo">
+            <a href="index.html">
+            <img src="/assets/images/logo_tasarimm" alt="Artemis" width="100">
+            </a>
+            </div> *@  <!-- /.main-header__logo       Logo bölümü  -->
+            <div class="main-header__right">
+                <div class="topbar">
+                    <div class="container-fluid">
+                        <div class="topbar__inner">
+                            <ul class="list-unstyled topbar__info">
+                                <li>
+                                    <i class="icon-paper-plane"></i>
+                                    <a href="/">artemis@company.com</a>
+                                </li>
+                                <li>
+                                    <i class="icon-maps-and-flags"></i>
+                                    <a href="https://www.google.com/maps/uv?pb=!1s0x14cab7913b7b9b3f%3A0x154c9d69c759851e!3m1!7e115!4s%2Fmaps%2Fplace%2Finfotech%2Bacademy%2Bmecidiyek%25C3%25B6y%2F%4041.0667312%2C28.9982788%2C3a%2C75y%2C0.05h%2C90t%2Fdata%3D*213m4*211e1*213m2*211smkqS4y_mgHAc2FPcsmSstQ*212e0*214m2*213m1*211s0x14cab7913b7b9b3f%3A0x154c9d69c759851e%3Fsa%3DX%26ved%3D2ahUKEwiT8tDr6OKEAxWXX_EDHTN2Dc8Qpx96BAgSEAA!5sinfotech%20academy%20mecidiyek%C3%B6y%20-%20Google%27da%20Ara!15sCgIgAQ&imagekey=!1e2!2smkqS4y_mgHAc2FPcsmSstQ&hl=tr">
+                                        Büyükdere Cad. Mecidiyeköy Mah. Saadet Apt, No: 65/3, 34394 Şişli/İstanbul
+                                    </a>
+                                </li>
+                            </ul><!-- /.list-unstyled topbar__info -->
+                            <div class="topbar__right">
+                              @*   <ul class="list-unstyled topbar__pages">
+                                    <li><a href="contact.html">Help</a></li>
+                                    <li><a href="contact.html">Support</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul> *@<!-- /.list-unstyled topbar__pages -->
+                                <div class="topbar__social">
+                                    <a href="https://facebook.com">
+                                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                        <span class="sr-only">Facebook</span>
+                                    </a>
+                                    <a href="https://twitter.com">
+                                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                                        <span class="sr-only">Twitter</span>
+                                    </a>
+                                    <a href="https://pinterest.com">
+                                        <i class="fab fa-pinterest-p" aria-hidden="true"></i>
+                                        <span class="sr-only">Pinterest</span>
+                                    </a>
+                                    <a href="https://instagram.com">
+                                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                                        <span class="sr-only">Instagram</span>
+                                    </a>
+                                </div><!-- /.topbar__social -->
+                            </div><!-- /.topbar__right -->
+                        </div><!-- /.topbar__inner -->
+                    </div><!-- /.container-fluid -->
+                </div><!-- /.topbar -->
+                <div class="main-header__right__inner">
+                    <div class="main-header__right__left">
+                        <nav class="main-header__nav main-menu">
+                            <ul class="main-menu__list">
+
+                                <li class="dropdown megamenu">
+                                    <a asp-controller="home" asp-action="index">Anasayfa</a>
+                                    <ul>
+                                        <li>
+                                            
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                               
+                              
+                              
+                               @foreach (Category c in Model.Where(x=> x.ParentID==null))
+                                {
+                                    <li class="dropdown">
+                                        <a href="#">@c.Name</a>
+                                        <ul class="sub-menu">
+
+                                            @foreach (Category subCategory in c.SubCategories)
+                                            {
+                                                <li class="dropdown">
+                                                <a href="#">@subCategory.Name</a>
+                                                </li>
+                                            }
+                                            
+                                            
+                                        </ul>
+                                    </li>
+                                }
+
+
+                               @*  <a href="#">News details</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog-details.html">No sidebar</a></li>
+                                    <li><a href="blog-details-left.html">Left sidebar</a></li>
+                                    <li><a href="blog-details-right.html">Right sidebar</a></li>
+                                </ul> *@
+
+
+
+
+
+
+
+                               
+                            </ul>
+                        </nav><!-- /.main-header__nav -->
+                    </div><!-- /.main-header__right__left -->
+                    <div class="main-header__right__right">
+                        <div class="mobile-nav__btn mobile-nav__toggler">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div><!-- /.mobile-nav__toggler -->
+                        <div class="main-header__call">
+                            <span class="main-header__call__icon icon-mobile"></span><!-- /.main-header__call__icon -->
+                            <div class="main-header__call__inner">
+                                <span class="main-header__call__tagline">Bizi Arayın</span>
+                                <!-- /.main-header__call__tagline -->
+                                <a href="tel:+92(8800)-9850" class="main-header__call__number">+ 92(8800) - 9850</a>
+                                <!-- /.main-header__call__number -->
+                            </div><!-- /.main-header__call__inner -->
+                        </div><!-- /.main-header__call -->
+                        @if(ViewBag.Login == 0)
+                        {
+                            <a asp-controller="user" asp-action="login" class="main-header__search">
+
+                                <i class="icon-user" aria-hidden="true">Giriş Yap</i>
+                                <span class="sr-only">Search</span>
+                            </a>
+
+                            <!-- /.search-toggler -->
+                        }
+                        else
+                        {
+                            <a asp-controller="user" asp-action="profile" class="main-header__search">
+
+                                <i class="icon-user" aria-hidden="true">@User.Claims.First(x=> x.Type =="adsoyad").Value</i> 
+                                <span class="sr-only">Search</span>
+                            </a>
+                            <a  asp-controller="user" asp-action="logout" class="main-header__search">
+
+                                <i aria-hidden="true" class=" fas fa-times">@User.Claims.First(x => x.Type == "adsoyad").Value</i> 
+                                <span class="sr-only">Search</span>
+                            </a>
+
+
+                        }
+
+                            
+                                          
+
+                            
+                        
+                        
+
+
+                        <a asp-controller="card" asp-action="index" class="main-header__cart">
+                            <small></small>  <i class="icon-cart" aria-hidden="true"> Sepetim</i>
+                            <span class="sr-only">Search</span>
+                        </a><!-- /.search-toggler -->
+
+
+                       
+
+                         <a href="/" class="boskery-btn main-header__btn">
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__text">Alışveriş</span>
+                            <i class="icon-check"></i>
+                        </a><!-- /.thm-btn main-header__btn --> 
+                    </div><!-- /.main-header__right__right -->
+                </div><!-- /.main-header__right__inner -->
+            </div><!-- /.main-header__right -->
+        </div><!-- /.main-header__inner -->
+    </div><!-- /.container-fluid -->
+</header>

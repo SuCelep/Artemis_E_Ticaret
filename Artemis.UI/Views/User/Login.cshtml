@@ -1,0 +1,83 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+
+<html lang="tr">
+<head>
+
+   
+    <meta charset="utf-8">
+    
+
+    
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+
+    <!-- Themefisher Icon font -->
+    <link rel="stylesheet" href="/add/plugins/themefisher-font/style.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="/add/plugins/bootstrap/css/bootstrap.min.css">
+
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/add/plugins/animate/animate.css">
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="/add/plugins/slick/slick.css">
+    <link rel="stylesheet" href="/add/plugins/slick/slick-theme.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/add/css/style.css">
+
+</head>
+
+<body id="body">
+
+    <section class="signin-page account">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="block text-center">
+                        <a class="logo" href="index.html">
+                            <img src="images/logo.png" alt="">
+                        </a>
+                        <h2 class="text-center">Giriş Yap</h2>
+                        <form class="text-left clearfix" action="/user/login"  method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="username" placeholder="Kullanıcı Adı">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password"  class="form-control" placeholder="Parola">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-main text-center">Giriş Yap</button>
+                            </div>
+                            @Html.AntiForgeryToken()
+                        </form>
+                        <p class="mt-20">Üye Değil misin?<a asp-controller="user" asp-action="signin"> Yeni Hesap Oluştur</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    Essential Scripts
+    =====================================-->
+    <!-- Main jQuery -->
+    <script src="/add/plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="/add/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Touchpin -->
+    <script src="/add/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    
+    <!-- Main Js File -->
+    <script src="/add/js/script.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿@model ProductVM
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                     @*    <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Velonic</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                                <li class="breadcrumb-item active">Form Elements</li>
+                            </ol>
+                        </div> *@
+                        <h4 class="page-title">Ürün Yönetimi</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="header-title">Yeni Ürün Ekle</h4>
+                           
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form enctype="multipart/form-data"  asp-controller="Product" asp-action="Insert" method="post">
+                                        <div class="mb-3">
+                                            <label  asp-for="@Model.Product.Name" class="form-label"></label>
+                                            <input asp-for="@Model.Product.Name" class="form-control">
+                                            <span asp-validation-for="@Model.Product.Name"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Product.Status" class="form-label"></label>
+                                            <select class="form-control" asp-for="@Model.Product.Status">
+                                                <option value="true">Aktif</option>
+                                                <option value="false">Pasif</option>
+                                            </select>
+                                            <span asp-validation-for="@Model.Product.Status"></span>
+                                        </div>
+                                     
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Product.UserID" class="form-label"></label>
+                                              <select class="form-control" asp-for="@Model.Product.UserID" asp-items="@Model.Users.Select(x=> new SelectListItem{Text=x.UserName, Value=x.Id.ToString()})">
+                                                  <option value="">Kullanıcı Seçiniz</option>
+                                              </select>
+                                            <span asp-validation-for="@Model.Product.UserID"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Product.BrandID" class="form-label"></label>
+                                            <select class="form-control" asp-for="@Model.Product.BrandID" asp-items="@Model.Brands.Select(x=> new SelectListItem{Text=x.Name, Value=x.ID.ToString()})">
+                                                <option value="">Marka Seçiniz</option>
+                                            </select>
+                                            <span asp-validation-for="@Model.Product.BrandID"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Product.CategoryID" class="form-label"></label>
+                                            <select class="form-control" asp-for="@Model.Product.CategoryID" asp-items="@Model.Categories.Select(x=> new SelectListItem{Text=x.Name, Value=x.ID.ToString()})">
+                                                <option value="">Kategori Seçiniz</option>
+                                            </select>
+                                            <span asp-validation-for="@Model.Product.CategoryID"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Product.Price" class="form-label"></label>
+                                            <input asp-for="@Model.Product.Price" class="form-control">
+                                            <span asp-validation-for="@Model.Product.Price"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Product.Stock" class="form-label"></label>
+                                            <input asp-for="@Model.Product.Stock" class="form-control">
+                                            <span asp-validation-for="@Model.Product.Stock"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Product.Description" class="form-label"></label>
+                                            <input asp-for="@Model.Product.Description" class="form-control">
+                                            <span asp-validation-for="@Model.Product.Description"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Product.Detail" class="form-label"></label>
+                                            <input asp-for="@Model.Product.Detail" class="form-control">
+                                            <span asp-validation-for="@Model.Product.Detail"></span>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label asp-for="@Model.Product.CargoDetail" class="form-label"></label>
+                                            <input asp-for="@Model.Product.CargoDetail" class="form-control">
+                                            <span asp-validation-for="@Model.Product.CargoDetail"></span>
+                                        </div>
+
+                                      <div class="mb--60">
+                                         <button class="btn btn-primary" type="submit">Ekle </button>
+                                         <button class="btn btn-danger" type="reset">Temizle </button>
+
+                                      </div>
+                                      @Html.AntiForgeryToken()
+                                    </form>
+                                </div> <!-- end col -->

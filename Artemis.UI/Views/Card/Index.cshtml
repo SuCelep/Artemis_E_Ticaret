@@ -1,0 +1,113 @@
+﻿@model List<Card>
+<section class="page-header">
+    <div class="page-header__bg" style="background-color:firebrick"></div>
+    <!-- /.page-header__bg -->
+    <div class="container">
+        <h2 class="page-header__title">Sepetim</h2>
+        <ul class="boskery-breadcrumb list-unstyled">
+            <li><a href="index.html">Artemis</a></li>
+           
+        </ul><!-- /.thm-breadcrumb list-unstyled -->
+    </div><!-- /.container -->
+</section><!-- /.page-header -->
+
+<section class="cart-page section-space">
+    <div class="container">
+        <div class="row gutter-y-50">
+            <div class="col-xl-12">
+                <div class="table-responsive">
+                    <table class="table cart-page__table">
+                        <thead>
+                            <tr>
+                                <th>Ürün</th>
+                                <th>Ürün Fiyatı</th>
+                                <th>Adet</th>
+                                <th>Toplam Tutar</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @foreach (Card c in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="cart-page__table__meta">
+                                            <div class="cart-page__table__meta__img">
+                                                <img src="@c.ProductPicture" alt="@c.ProductName">
+                                            </div>
+                                            <h3 class="cart-page__table__meta__title">
+                                                <a href="shop-details.html">
+                                                    @c.ProductName
+                                                </a>
+                                            </h3>
+                                        </div>
+                                    </td>
+                                    <td class="cart-page__table__price">@c.ProductPrice ₺</td>
+                                    <td class="cart-page__table__price">@c.Quantity </td>
+                                    <td class="cart-page__table__price">@(c.Quantity*c.ProductPrice) ₺</td>
+                                    <td>
+                                        <button onclick="removeCard(@c.ProductId)" class="btn btn-danger">Kaldır</button>
+                                        
+                                    </td>
+                                </tr>
+                            }
+                           
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cart-page__coupone">
+                    @* <h5 class="cart-page__coupone__title">coupon:</h5> *@
+                    <div class="cart-page__coupone__box">
+
+                        <a href="/" class="cart-page__update-btn cart-page__bottom-btn boskery-btn">
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__text">Alışverişe Devam Et</span>
+                        </a>
+
+
+                        <a asp-controller="card" asp-action="checkout" class="cart-page__update-btn cart-page__bottom-btn boskery-btn">
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__hover"></span>
+                            <span class="boskery-btn__text">Hemen Al</span>
+                        </a>
+                    </div><!-- /.cart-page__coupone__box -->
+                </div><!-- /.cart-page__coupone -->
+            </div><!-- /.col-xl-8 -->
+            @* <div class="col-xl-4">
+                <div class="cart-page__cart-checkout">
+                    <ul class="cart-page__cart-total list-unstyled">
+                        <li>
+                            <span>Subtotal</span><span class="cart-page__cart-total__amount cart-page__cart-total__amount--top">$999.00</span>
+                        </li>
+                        <li>
+                            <h4 class="cart-page__cart-total__address">Shipping Address</h4>
+                            <address class="cart-page__cart-total__address__text">
+                                2801 Lafayette Blvd, Norfolk, Vermont
+                                23509, united state
+                            </address>
+                        </li>
+                        <li><span>Total</span><span class="cart-page__cart-total__amount">$999.00</span></li>
+                    </ul>
+                    <a href="checkout.html" class="boskery-btn cart-page__checkout-btn">
+                        <span class="boskery-btn__hover"></span>
+                        <span class="boskery-btn__hover"></span>
+                        <span class="boskery-btn__hover"></span>
+                        <span class="boskery-btn__hover"></span>
+                        <span class="boskery-btn__hover"></span>
+                        <span class="boskery-btn__hover"></span>
+                        <span class="boskery-btn__text">checkout</span>
+                    </a>
+                </div>
+            </div> *@<!-- /.col-xl-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.cart-page -->

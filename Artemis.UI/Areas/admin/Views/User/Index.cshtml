@@ -1,0 +1,67 @@
+﻿@model IOrderedQueryable<User>
+
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                            <a asp-controller="User" asp-action="newuser" class="btn btn-success float-right "> Kullanıcı Ekle </a>
+                            </div>
+                            <h4 class="page-title">Kullancı Yönetimi</h4>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+               
+                            <div class="card-body">
+                                <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>Kullanıcı Adı</th>
+                                            <th>Parola</th>
+                                            <th>Adı Soyadı</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                       @foreach (User s in Model)
+                                    {
+                                        <tr>
+                                <td><a asp-controller="User" asp-action="edituser" asp-route-id="@s.Id">@s.UserName </a></td>
+                                            <td>@s.Password</td>
+                                            <td>@s.NameSurname</td>
+                                            <td>
+                                                <a asp-controller="User" asp-action="delete" asp-route-id="@s.Id" class="btn btn-danger" style="color:#fff" >Sil</a>
+                                            </td>
+                                        </tr>  
+                                    }
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div> <!-- end card body-->
+                        </div> <!-- end card -->
+                    </div><!-- end col-->
+                </div> <!-- end row-->
+
+
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
