@@ -25,6 +25,14 @@ Proje aşağıdaki katmanlardan oluşmaktadır:
 
 ## 📺 Proje Demo ve Tanıtım Videosu
 
-Projenin arayüzünü, sepet işlemlerini ve yönetim panelinin nasıl çalıştığını aşağıdaki videoya tıklayarak izleyebilirsiniz:
+Projenin kullanıcı arayüzü, sepet/satın alma süreçleri, ürün ekleme akışı ve Admin Paneli (kullanıcı, kategori, marka yönetimi) süreçlerinin detaylı anlatımını aşağıdaki görsele tıklayarak YouTube üzerinden izleyebilirsiniz:
 
-[![Proje Tanıtım Videosu](https://img.youtube.com/vi/https://www.youtube.com/watch?v=R61LVILHP6k&t=157s/0.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=R61LVILHP6k&t=157s)
+[![Proje Tanıtım Videosu](https://img.youtube.com/vi/R61LVILHP6k/0.jpg)](https://www.youtube.com/watch?v=R61LVILHP6k)
+
+### 🔑 Öne Çıkan Özellikler (Video İçeriği)
+* **Kullanıcı Akışı:** Ürün listeleme, detay inceleme, dinamik sepet işlemleri ve sipariş tamamlama adımları `[00:00:21]`.
+* **Ürün Yükleme & Güvenlik:** Kullanıcıların kendi yükledikleri ürünleri satın alamaması ve yeni eklenen ürünlerin admin onayına kadar pasif kalması `[00:01:00]`.
+* **Admin Paneli Yetenekleri:** * Bekleyen ürünlerin incelenmesi, resim yüklenmesi ve aktifleştirilmesi `[00:03:15]`.
+  * Kullanıcı yönetimi (Silme, listeleme ve roller) `[00:04:04]`.
+  * Hiyerarşik Kategori yönetimi (Alt/Üst kategori eşlemeleri) `[00:04:57]`.
+  * Dinamik marka ve ana sayfa slider yönetimi `[00:05:29]`.
