@@ -27,7 +27,4 @@ Proje aşağıdaki katmanlardan oluşmaktadır:
 
 Projenin arayüzünü, sepet işlemlerini ve yönetim panelinin nasıl çalıştığını aşağıdaki videoya tıklayarak izleyebilirsiniz:
 
-## 📺 Proje Tanıtım Videosu
-## 📺 Proje Tanıtım Videosu
-
-[![Proje Tanıtım Videosu](https://img.youtube.com/vi/VİDEO_ID_BURAYA/0.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=R61LVILHP6k&t=157s)
+[![Proje Tanıtım Videosu](https://img.youtube.com/vi/https://www.youtube.com/watch?v=R61LVILHP6k&t=157s/0.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=R61LVILHP6k&t=157s)
