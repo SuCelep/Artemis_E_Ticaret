@@ -23,34 +23,10 @@ Proje aşağıdaki katmanlardan oluşmaktadır:
 * **ORM:** Entity Framework Core 
 * **Frontend :** Bootstrap 5, jQuery, HTML5/CSS3.
 
-## ⚙️ Kurulum ve Çalıştırma
+## 📺 Proje Demo ve Tanıtım Videosu
 
-Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin:
-Projeyi Klonlayın.
-appsettings.json dosyasındaki Connection String bilgisini kendi yerel SQL Server ayarlarınıza göre güncelleyin.
-Package Manager Console üzerinden veya terminalden aşağıdaki komutu çalıştırarak veritabanını ve tabloları oluşturun.
+Projenin arayüzünü, sepet işlemlerini ve yönetim panelinin nasıl çalıştığını aşağıdaki videoya tıklayarak izleyebilirsiniz:
 
-### 1. Projeyi Klonlayın
-```bash
-git clone [https://github.com/KULLANICI_ADIN/REPO_ISMI.git](https://github.com/KULLANICI_ADIN/REPO_ISMI.git)
-##2. Veritabanı Ayarları
-appsettings.json dosyasındaki Connection String bilgisini kendi yerel SQL Server ayarlarınıza göre güncelleyin.
+## 📺 Proje Tanıtım Videosu
 
-JSON
-
-"ConnectionStrings": {
-  "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=EticaretDb;Trusted_Connection=True;MultipleActiveResultSets=true"
-}
-
-3. Veritabanını Oluşturun (Migration)
-Package Manager Console üzerinden veya terminalden aşağıdaki komutu çalıştırarak veritabanını ve tabloları oluşturun:
-
-Bash
-
-update-database
-# veya .NET CLI kullanıyorsanız:
-dotnet ef database update
-
-
-
-https://github.com/SuCelep tarafından geliştirilmiştir.
+[![Proje Demo](images/tanitim_animasyon.gif)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=R61LVILHP6k&t=157s)
